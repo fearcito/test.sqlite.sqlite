@@ -5,7 +5,7 @@ tests:
             - "Hello World"
 software:
     python:
-        execute: ["./bld/sqlite3", "[[tests]]"]
+        execute: ["./bld/sqlite3", "hello.db", "-cmd", "create table hello (who text); insert into hello (who) values ('[[tests]]');"]
         install:
             - apt install -y tclsh
             #- ls -l
