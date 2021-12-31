@@ -1,6 +1,6 @@
 tests:
     hello:
-        assertStdoutContains: "Koyaanisqatsi"
+        assertStdoutContains: "Balls to the Wall"
         input:
             - ""
 software:
