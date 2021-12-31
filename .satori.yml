@@ -9,4 +9,5 @@ software:
         install:
             - apt install -y tclsh
             - ls -l
-            - mkdir bld; cd bld; ../configure; make; make sqlite3.c
+            - mkdir bld; cd bld; ../configure; make
+            - ls -l bld/
