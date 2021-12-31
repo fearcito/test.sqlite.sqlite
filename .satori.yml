@@ -12,4 +12,5 @@ software:
             - mkdir bld; cd bld; ../configure; make
             - ls -l
             - find ./ -name "*.db"
+            - wget "https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip"
             #- ls -l bld/
