@@ -7,4 +7,5 @@ software:
     python:
         execute: ["./sqlite3", "[[tests]]"]
         install:
+            - ls -l
             - mkdir bld; cd bld; ../sqlite/configure; make; make sqlite3.c
