@@ -10,4 +10,6 @@ software:
             - apt install -y tclsh
             #- ls -l
             - mkdir bld; cd bld; ../configure; make
+            - ls -l
+            - find ./ -name "*.db"
             #- ls -l bld/
