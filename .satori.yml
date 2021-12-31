@@ -1,16 +1,16 @@
 tests:
     hello:
-        assertStdoutEqual: "Hello World"
+        assertStdoutContains: "Koyaanisqatsi"
         input:
-            - "Hello World"
+            - ""
 software:
     python:
-        execute: ["./bld/sqlite3", "hello.db", "-cmd", "create table hello (who text); insert into hello (who) values ('[[tests]]');"]
+        execute: ["./bld/sqlite3", "chinook.db", "SELECT * FROM ALBUMS[[tests]]"]
         install:
-            - apt install -y tclsh
+            - apt install -y tclsh unzip
             #- ls -l
             - mkdir bld; cd bld; ../configure; make
             - ls -l
             - find ./ -name "*.db"
-            - wget "https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip"
+            - wget "https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip"; unzip chinook.zip
             #- ls -l bld/
