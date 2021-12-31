@@ -1,0 +1,10 @@
+tests:
+    hello:
+        assertStdoutEqual: "Hello World"
+        input:
+            - "Hello World"
+software:
+    python:
+        execute: ["./sqlite3", "[[tests]]"]
+        install:
+            - mkdir bld; cd bld; ../sqlite/configure; make; make sqlite3.c
