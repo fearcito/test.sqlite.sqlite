@@ -5,9 +5,9 @@ tests:
             - "Hello World"
 software:
     python:
-        execute: ["./sqlite3", "[[tests]]"]
+        execute: ["./bld/sqlite3", "[[tests]]"]
         install:
             - apt install -y tclsh
-            - ls -l
+            #- ls -l
             - mkdir bld; cd bld; ../configure; make
-            - ls -l bld/
+            #- ls -l bld/
