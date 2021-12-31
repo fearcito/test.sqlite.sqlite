@@ -7,5 +7,6 @@ software:
     python:
         execute: ["./sqlite3", "[[tests]]"]
         install:
+            - apt install -y tclsh
             - ls -l
             - mkdir bld; cd bld; ../configure; make; make sqlite3.c
