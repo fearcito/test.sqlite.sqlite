@@ -1,16 +1,17 @@
-tests:
-    hello:
-        assertStdoutContains: "Balls to the Wall"
-        input:
-            - ""
-software:
-    python:
-        execute: ["./bld/sqlite3", "chinook.db", "SELECT * FROM ALBUMS[[tests]]"]
-        install:
-            - apt install -y tclsh unzip
-            #- ls -l
-            - mkdir bld; cd bld; ../configure; make
-            - ls -l
-            - find ./ -name "*.db"
-            - wget "https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip"; unzip chinook.zip
-            #- ls -l bld/
+install:
+  assertReturnCode: 0
+  dependencies:
+  - [ apt install -y tclsh unzip ]
+  configure:
+  - [ ./configure ]
+  make:
+  - [ make ]
+
+test:
+  assertReturnCode: 0
+  get_chinook:
+  - [ wget "https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip"; unzip chinook.zip ]
+  balls:
+    assertStdoutContains: "Balls to the Wall"
+    select:
+    - [ ./sqlite3 chinook.db "SELECT * FROM ALBUMS" ]
